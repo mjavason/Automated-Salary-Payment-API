@@ -64,7 +64,7 @@ class Controller {
 
   startEveryMinute() {
     const startEveryMinuteJob = scheduleService.startEveryMinute(async () => {
-      // await paySalaries(1, 'hourly');
+      await paySalaries(1, 'hourly');
     });
   }
 
