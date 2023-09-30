@@ -3,6 +3,7 @@ import 'express-async-errors';
 import app from './app';
 import logger from './helpers/logger';
 import { connectToDatabase } from './config/db';
+import { scheduleController } from './controllers';
 
 // setting up server
 const PORT = process.env.PORT || 5000;
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 5000;
 const server: Server = app.listen(PORT, async () => {
   await connectToDatabase();
   logger.info(`Server running on port ${PORT}`);
+  scheduleController.startHourlyJobs();
 });
 
 // handle unhanled promise rejections
