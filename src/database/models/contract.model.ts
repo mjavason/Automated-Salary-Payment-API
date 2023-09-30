@@ -24,7 +24,7 @@ const ContractSchema = new Schema<IContract>(
     },
     status: {
       type: String,
-      enum: ['active', 'terminated', 'suspended', 'other'],
+      enum: ['active', 'terminated', 'suspended', 'pending', 'other'],
       default: 'active',
     },
     deleted: {

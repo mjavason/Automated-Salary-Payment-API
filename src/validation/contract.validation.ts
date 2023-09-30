@@ -10,7 +10,7 @@ class Validation {
       }),
       amount_to_earn: z.number().min(0),
       days_interval: z.number().min(1),
-      status: z.enum(['active', 'terminated', 'suspended', 'other']),
+      status: z.enum(['active', 'terminated', 'suspended', 'pending', 'other']),
       deleted: z.boolean().optional(),
     }),
   };
@@ -31,7 +31,7 @@ class Validation {
         .optional(),
       amount_to_earn: z.number().min(0).optional(),
       days_interval: z.number().min(1).optional(),
-      status: z.enum(['active', 'terminated', 'suspended', 'other']).optional(),
+      status: z.enum(['active', 'terminated', 'suspended', 'pending', 'other']).optional(),
       deleted: z.boolean().optional(),
     }),
   };
@@ -53,7 +53,7 @@ class Validation {
         .optional(),
       amount_to_earn: z.string().min(0).optional(),
       days_interval: z.string().min(1).optional(),
-      status: z.enum(['active', 'terminated', 'suspended', 'other']).optional(),
+      status: z.enum(['active', 'terminated', 'suspended', 'pending', 'other']).optional(),
       deleted: z.string().optional(),
     }),
   };
