@@ -18,7 +18,11 @@ class Controller {
 
   async getAll(req: Request, res: Response) {
     let pagination = parseInt(req.params.pagination);
+
     if (!pagination) pagination = 1;
+
+    pagination = (pagination - 1) * 10;
+
     const data = await resetTokenService.getAll(pagination);
 
     if (!data) return InternalErrorResponse(res);

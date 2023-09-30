@@ -8,3 +8,4 @@ export { userService } from './user.service';
 export { mailService } from './mail.service';
 export { resetTokenService } from './reset_token.service';
 export { contractService } from './contract.service';
+export { scheduleService } from './schedule.service';

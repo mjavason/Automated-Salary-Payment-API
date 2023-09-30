@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import { mailService, userService } from '../services';
 import { SITE_LINK } from '../constants';
 import logger from '../helpers/logger';
@@ -40,8 +39,6 @@ class Controller {
     // Send the email
     const info = await mailService.sendMail(
       email,
-      firstName,
-      lastName,
       compiledTemplate,
       '#100DaysOfAPIAwesomeness Welcome',
     );
@@ -73,15 +70,36 @@ class Controller {
     }
 
     // Send the email
-    const info = await mailService.sendMail(
-      email,
-      user.firstname,
-      user.lastname,
-      renderedEmail,
-      'Password reset',
-    );
+    const info = await mailService.sendMail(email, renderedEmail, 'Password reset');
 
     console.log(`Password reset email sent to: ${email}`);
+
+    return { info };
+  }
+
+  async sendPaymentConfirmationMail(
+    email: string,
+    firstName: string,
+    lastName: string,
+    amountPaid: number,
+  ) {
+    const data = {
+      firstName,
+      lastName,
+      amountPaid,
+    };
+
+    const renderedEmail = await renderMailTemplate('src/templates/salary_paid.html', data);
+
+    if (!renderedEmail) {
+      console.log('Mail template not found');
+      return false;
+    }
+
+    // Send the email
+    const info = await mailService.sendMail(email, renderedEmail, 'Payment Confirmation');
+
+    console.log(`Password confirmation email sent to: ${email}`);
 
     return { info };
   }

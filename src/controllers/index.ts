@@ -7,3 +7,4 @@ export { userController } from './user.controller';
 export { mailController } from './mail.controller';
 export { resetTokenController } from './reset_token.controller';
 export { contractController } from './contract.controller';
+export { scheduleController } from './schedule.controller';
