@@ -17,7 +17,7 @@ const ContractSchema = new Schema<IContract>(
       required: true,
       default: 0,
     },
-    days_interval: {
+    hourly_interval: {
       type: Number,
       required: true,
       default: 30,

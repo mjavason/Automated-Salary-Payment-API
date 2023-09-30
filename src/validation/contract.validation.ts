@@ -9,7 +9,7 @@ class Validation {
         message: 'Invalid User ObjectId format in user',
       }),
       amount_to_earn: z.number().min(0),
-      days_interval: z.number().min(1),
+      hourly_interval: z.number().min(1),
       status: z.enum(['active', 'terminated', 'suspended', 'pending', 'other']),
       deleted: z.boolean().optional(),
     }),
@@ -30,7 +30,7 @@ class Validation {
         })
         .optional(),
       amount_to_earn: z.number().min(0).optional(),
-      days_interval: z.number().min(1).optional(),
+      hourly_interval: z.number().min(1).optional(),
       status: z.enum(['active', 'terminated', 'suspended', 'pending', 'other']).optional(),
       deleted: z.boolean().optional(),
     }),
@@ -52,7 +52,7 @@ class Validation {
         })
         .optional(),
       amount_to_earn: z.string().min(0).optional(),
-      days_interval: z.string().min(1).optional(),
+      hourly_interval: z.string().min(1).optional(),
       status: z.enum(['active', 'terminated', 'suspended', 'pending', 'other']).optional(),
       deleted: z.string().optional(),
     }),
