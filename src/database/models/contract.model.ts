@@ -17,14 +17,14 @@ const ContractSchema = new Schema<IContract>(
       required: true,
       default: 0,
     },
-    days_interval: {
+    hourly_interval: {
       type: Number,
       required: true,
       default: 30,
     },
     status: {
       type: String,
-      enum: ['active', 'terminated', 'suspended', 'other'],
+      enum: ['active', 'terminated', 'suspended', 'pending', 'other'],
       default: 'active',
     },
     deleted: {

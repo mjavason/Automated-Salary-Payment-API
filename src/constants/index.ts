@@ -12,8 +12,6 @@ export const APP_NAME = process.env.APP_NAME || 'app';
 export const SITE_LINK = process.env.SITE_LINK || 'http://localhost:5000';
 export const MAIL_ADDRESS = process.env.MAIL_ADDRESS || 'michaelorji@mail.com';
 export const MAIL_PASSWORD = process.env.MAIL_PASSWORD || 'xxxx';
-export const PUBLIC_VAPID_KEY = process.env.PUBLIC_VAPID_KEY || 'xxxx';
-export const PRIVATE_VAPID_KEY = process.env.PRIVATE_VAPID_KEY || 'xxxx';
 
 export const STATUS_CODES = {
   SUCCESS: '10000',
@@ -38,7 +36,7 @@ export const MESSAGES = {
   LOGOUT: "You've been successfully logged out. Have a wonderful day!",
   LOGIN_FIRST: 'Oops! Please log in first to proceed',
   LOGGED_IN: "You've been successfully logged in",
-  LOGIN_FAILURE: 'Login failed. Please check your username and password',
+  LOGIN_FAILURE: 'Login failed. Please check your email and password',
   USER_UNAUTHORIZED: 'Sorry, you are not authorized to perform this operation',
   USER_NOT_FOUND: 'User not found',
   MAIL_SENT: 'Email sent successfully. Please check your inbox!',
@@ -59,7 +57,9 @@ export const MESSAGES = {
 };
 
 export const LINKS = {
-  API_DOCUMENTATION: 'https://documenter.getpostman.com/view/29278179/2s9YJZ2Pep',
+  API_DOCUMENTATION:
+    process.env.API_DOCUMENTATION_URL ||
+    'https://documenter.getpostman.com/view/29278179/2s9YJaYimq',
   EMAIL: 'mailto:app@mail.online',
   GOOGLE_MEET: 'https://meet.google.com',
   PHONE_CALL: 'tel:+2349999999999',

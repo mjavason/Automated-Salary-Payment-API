@@ -1,15 +1,16 @@
 import { Request, Response } from 'express';
-import { resetTokenService } from '../services';
+import { contractService } from '../services';
 import {
   SuccessResponse,
   InternalErrorResponse,
+  SuccessMsgResponse,
   NotFoundResponse,
 } from '../helpers/response';
 import { MESSAGES } from '../constants';
 
 class Controller {
   async create(req: Request, res: Response) {
-    const data = await resetTokenService.create(req.body);
+    const data = await contractService.create(req.body);
 
     if (!data) return InternalErrorResponse(res);
 
@@ -23,7 +24,7 @@ class Controller {
 
     pagination = (pagination - 1) * 10;
 
-    const data = await resetTokenService.getAll(pagination);
+    const data = await contractService.getAll(pagination);
 
     if (!data) return InternalErrorResponse(res);
     if (data.length === 0) return NotFoundResponse(res);
@@ -32,7 +33,7 @@ class Controller {
   }
 
   async find(req: Request, res: Response) {
-    const data = await resetTokenService.find(req.query);
+    const data = await contractService.find(req.query);
 
     if (!data) return InternalErrorResponse(res);
     if (data.length === 0) return NotFoundResponse(res);
@@ -42,7 +43,7 @@ class Controller {
 
   async update(req: Request, res: Response) {
     const { id } = req.params;
-    const data = await resetTokenService.update({ _id: id }, req.body);
+    const data = await contractService.update({ _id: id }, req.body);
 
     if (!data) return NotFoundResponse(res);
 
@@ -51,17 +52,17 @@ class Controller {
 
   async delete(req: Request, res: Response) {
     const { id } = req.params;
-    const data = await resetTokenService.softDelete({ _id: id });
+    const data = await contractService.softDelete({ _id: id });
 
     if (!data) return NotFoundResponse(res);
-    
+
     return SuccessResponse(res, data, MESSAGES.DELETED);
   }
 
   // Admins only
   async hardDelete(req: Request, res: Response) {
     const { id } = req.params;
-    const data = await resetTokenService.hardDelete({ _id: id });
+    const data = await contractService.hardDelete({ _id: id });
 
     if (!data) return NotFoundResponse(res);
 
@@ -69,4 +70,4 @@ class Controller {
   }
 }
 
-export const resetTokenController = new Controller();
+export const contractController = new Controller();

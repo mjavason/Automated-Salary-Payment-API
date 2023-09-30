@@ -64,10 +64,10 @@ class Controller {
   }
 
   async login(req: Request, res: Response) {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    // Find the user by username
-    const user = await userService.findOneReturnPassword({ username });
+    // Find the user by email
+    const user = await userService.findOneReturnPassword({ email });
 
     if (!user) return NotFoundResponse(res, 'User not found');
 
@@ -82,12 +82,13 @@ class Controller {
 
     // Passwords match, user is authenticated
     const { _id, role } = user;
-    let accessToken = await signJwt({ _id, role, username }, ACCESS_TOKEN_SECRET, '48h');
-    let refreshToken = await signJwt({ _id, role, username }, REFRESH_TOKEN_SECRET, '24h');
+
+    let accessToken = await signJwt({ _id, role, email }, ACCESS_TOKEN_SECRET, '48h');
+    let refreshToken = await signJwt({ _id, role, email }, REFRESH_TOKEN_SECRET, '24h');
 
     let data = {
-      accessToken: accessToken,
-      refreshToken: refreshToken,
+      access_token: accessToken,
+      refresh_token: refreshToken,
     };
 
     // Return a success response or the token, depending on your authentication method

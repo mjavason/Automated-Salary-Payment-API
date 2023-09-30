@@ -14,13 +14,7 @@ const transporter = nodeMailer.createTransport({
 });
 
 class Service {
-  sendMail = async (
-    recipientEmail: string,
-    recipientFirstName: string,
-    recipientLastName: string,
-    mailHtmlBody: string,
-    mailSubject: string,
-  ) => {
+  sendMail = async (recipientEmail: string, mailHtmlBody: string, mailSubject: string) => {
     // This is where the actual email message is built. Things like CC, recipients, attachments, and so on are configured here.
     return await transporter.sendMail({
       from: `#1OODaysOfAPIAwesomeness <${MAIL_ADDRESS}>`,
