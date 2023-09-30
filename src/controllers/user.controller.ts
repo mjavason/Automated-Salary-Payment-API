@@ -28,8 +28,8 @@ async function hashPassword(password: string) {
 }
 class Controller {
   async register(req: Request, res: Response) {
-    const cwd = process.cwd();
-    console.log('Current working directory:', cwd);
+    // const cwd = process.cwd();
+    // console.log('Current working directory:', cwd);
 
     let existing_user = await userService.findOne({ email: req.body.email });
 
