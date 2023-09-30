@@ -99,7 +99,7 @@ class Controller {
     // Send the email
     const info = await mailService.sendMail(email, renderedEmail, 'Payment Confirmation');
 
-    console.log(`Password confirmation email sent to: ${email}`);
+    // console.log(`Payment confirmation email sent to: ${email}`);
 
     return { info };
   }
