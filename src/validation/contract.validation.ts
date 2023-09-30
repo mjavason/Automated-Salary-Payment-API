@@ -51,8 +51,8 @@ class Validation {
           message: 'Invalid User ObjectId format in user',
         })
         .optional(),
-      amount_to_earn: z.number().min(0).optional(),
-      days_interval: z.number().min(1).optional(),
+      amount_to_earn: z.string().min(0).optional(),
+      days_interval: z.string().min(1).optional(),
       status: z.enum(['active', 'terminated', 'suspended', 'other']).optional(),
       deleted: z.string().optional(),
     }),

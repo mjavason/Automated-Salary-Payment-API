@@ -36,7 +36,7 @@ export const MESSAGES = {
   LOGOUT: "You've been successfully logged out. Have a wonderful day!",
   LOGIN_FIRST: 'Oops! Please log in first to proceed',
   LOGGED_IN: "You've been successfully logged in",
-  LOGIN_FAILURE: 'Login failed. Please check your username and password',
+  LOGIN_FAILURE: 'Login failed. Please check your email and password',
   USER_UNAUTHORIZED: 'Sorry, you are not authorized to perform this operation',
   USER_NOT_FOUND: 'User not found',
   MAIL_SENT: 'Email sent successfully. Please check your inbox!',
