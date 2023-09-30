@@ -86,8 +86,8 @@ class Controller {
     let refreshToken = await signJwt({ _id, role, username }, REFRESH_TOKEN_SECRET, '24h');
 
     let data = {
-      accessToken: accessToken,
-      refreshToken: refreshToken,
+      access_token: accessToken,
+      refresh_token: refreshToken,
     };
 
     // Return a success response or the token, depending on your authentication method

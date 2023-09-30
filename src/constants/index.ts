@@ -12,8 +12,6 @@ export const APP_NAME = process.env.APP_NAME || 'app';
 export const SITE_LINK = process.env.SITE_LINK || 'http://localhost:5000';
 export const MAIL_ADDRESS = process.env.MAIL_ADDRESS || 'michaelorji@mail.com';
 export const MAIL_PASSWORD = process.env.MAIL_PASSWORD || 'xxxx';
-export const PUBLIC_VAPID_KEY = process.env.PUBLIC_VAPID_KEY || 'xxxx';
-export const PRIVATE_VAPID_KEY = process.env.PRIVATE_VAPID_KEY || 'xxxx';
 
 export const STATUS_CODES = {
   SUCCESS: '10000',
