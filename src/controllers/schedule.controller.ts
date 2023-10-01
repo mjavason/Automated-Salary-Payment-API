@@ -73,6 +73,12 @@ class Controller {
     });
   }
 
+  startEvery10thMinute() {
+    const startEvery10Minute = scheduleService.startEvery10thMinute(() => {
+      sayHello();
+    });
+  }
+
   startEvery30thMinute() {
     const startEvery30Minute = scheduleService.startEvery30thMinute(() => {
       sayHello();
