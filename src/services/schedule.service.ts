@@ -15,6 +15,13 @@ class ScheduleService {
     return minuteTask;
   }
 
+  startEvery30thMinute(taskFunction: () => void) {
+    console.log('Task started for each 30th minute');
+
+    const minuteTask = schedule.scheduleJob('*/30 * * * *', taskFunction);
+    return minuteTask;
+  }
+
   startHourly(taskFunction: () => void) {
     console.log('Task started for each hour');
 

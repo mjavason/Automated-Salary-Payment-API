@@ -55,16 +55,27 @@ async function paySalaries(intervalInHours: number, timeUnit: string) {
   }
 }
 
+function sayHello() {
+  console.log('Hello at', Date.now());
+}
+
 class Controller {
   startEverySecond() {
     const startEverySecond = scheduleService.startEverySecond(async () => {
       // await paySalaries(1, 'hour');
+      sayHello();
     });
   }
 
   startEveryMinute() {
     const startEveryMinuteJob = scheduleService.startEveryMinute(async () => {
       await paySalaries(1, 'hourly');
+    });
+  }
+
+  startEvery30thMinute() {
+    const startEvery30Minute = scheduleService.startEvery30thMinute(() => {
+      sayHello();
     });
   }
 

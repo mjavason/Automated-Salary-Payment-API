@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 5000;
 const server: Server = app.listen(PORT, async () => {
   await connectToDatabase();
   logger.info(`Server running on port ${PORT}`);
+  scheduleController.startEvery30thMinute();
   scheduleController.startHourlyJobs();
 });
 
